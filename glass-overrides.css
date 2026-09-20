@@ -1,0 +1,167 @@
+:root {
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 18px 44px rgba(35, 47, 60, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -1px 0 rgba(69, 78, 90, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 7% 12%, rgba(198, 215, 227, 0.72), transparent 28rem),
+    radial-gradient(circle at 94% 28%, rgba(220, 228, 240, 0.88), transparent 30rem),
+    #f7f9fc;
+}
+
+.site-header {
+  background: rgba(247, 249, 252, 0.58);
+  border-bottom-color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(26px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(13, 15, 18, 0.04), 0 12px 32px rgba(13, 15, 18, 0.04);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 6px 16px rgba(13, 15, 18, 0.06);
+}
+
+.hero-visual,
+.card,
+.decision-list div,
+.form-card,
+.note-card,
+.metric-row > div {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.4));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(24px) saturate(180%);
+}
+
+.hero-visual::after,
+.card::before,
+.form-card::before,
+.note-card::before,
+.metric-row > div::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+  pointer-events: none;
+}
+
+.section-muted {
+  background: linear-gradient(135deg, rgba(226, 232, 238, 0.5), rgba(247, 249, 252, 0.22));
+  border-block: 1px solid rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(14px);
+}
+
+.data-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.46));
+  border-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px) saturate(190%);
+  box-shadow: 0 14px 34px rgba(13, 15, 18, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.status-pill,
+.button-light {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 6px 16px rgba(13, 15, 18, 0.04);
+}
+
+.timeline-item > span,
+.brand-mark,
+.prism-core {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 12px 26px rgba(7, 9, 12, 0.18);
+}
+
+.scene-viewer {
+  min-height: 520px;
+  isolation: isolate;
+  background: #030507;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 70px rgba(4, 8, 12, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.scene-viewer > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+  filter: saturate(0.88) contrast(1.08);
+  transition: opacity 220ms ease, transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.scene-viewer:hover > img { transform: scale(1.035); }
+
+.scene-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 35%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.scene-caption {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  right: 28px;
+  bottom: 74px;
+  display: grid;
+  gap: 6px;
+  color: white;
+}
+
+.scene-caption span { color: #7fd1e0; font: 700 11px "JetBrains Mono", monospace; letter-spacing: .09em; text-transform: uppercase; }
+.scene-caption b { max-width: 520px; font: 600 28px/1.05 "Space Grotesk", sans-serif; letter-spacing: -.035em; }
+.scene-caption small { max-width: 420px; color: rgba(255, 255, 255, .72); font-size: 14px; }
+
+.scene-controls {
+  position: absolute;
+  z-index: 3;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scene-arrow { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(255,255,255,.08); color: white; cursor: pointer; backdrop-filter: blur(12px); }
+.scene-arrow:hover { background: rgba(255,255,255,.22); }
+.scene-dots { display: flex; gap: 8px; }
+.scene-dot { width: 28px; height: 3px; border: 0; border-radius: 99px; background: rgba(255,255,255,.3); cursor: pointer; }
+.scene-dot.active { background: #7fd1e0; box-shadow: 0 0 14px rgba(127,209,224,.65); }
+
+.contact-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: start; }
+.contact-aside { display: grid; gap: 16px; }
+.form-two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.whatsapp-card { background: linear-gradient(145deg, #071016, #102731); border: 1px solid rgba(127, 209, 224, .28); }
+.button-whatsapp { margin-top: 18px; background: #d9f8e8; color: #092a19; }
+.button-whatsapp:hover { background: #baf1d3; }
+.whatsapp-card small { display: block; margin-top: 13px; color: rgba(255,255,255,.58); font: 11px "JetBrains Mono", monospace; }
+.contact-points { display: grid; gap: 8px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+.contact-points span { display: flex; align-items: center; gap: 10px; color: var(--sub); font-size: 14px; }
+.contact-points .icon { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--muted); color: var(--cyan); font: 700 10px "JetBrains Mono", monospace; }
+
+@media (max-width: 600px) {
+  .scene-viewer { min-height: 420px; }
+  .scene-caption { left: 20px; right: 20px; bottom: 70px; }
+  .scene-caption b { font-size: 23px; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .form-two { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (max-width: 900px) {
+  .nav-shell nav.open {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+}
